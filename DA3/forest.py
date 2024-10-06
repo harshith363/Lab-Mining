@@ -62,3 +62,4 @@ for i, feature in enumerate(X.columns):
     plt.title(f'Distribution of {feature}')
 plt.tight_layout()
 plt.show()
+    
