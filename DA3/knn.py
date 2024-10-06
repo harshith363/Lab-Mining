@@ -9,42 +9,32 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 print("Harshith Kumar 21BBS0163")
 
-# Load the data
 df = pd.read_csv("student_data.csv")
 
-# Separate features and target
 X = df[['Attendance', 'Marks (Data Mining)']]
 
-# Define classification based on attendance and marks
 y = np.where(X['Attendance'] < 75, 'Drop',
              np.where(X['Marks (Data Mining)'] < 40, 'Fail', 'Pass'))
 
-# Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42)
 
-# Scale the features
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# Create and train the KNN model
 knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train_scaled, y_train)
 
-# Make predictions
 y_pred = knn.predict(X_test_scaled)
 
-# Print classification report and confusion matrix
 print("Classification Report:")
 print(classification_report(y_test, y_pred))
 print("\nConfusion Matrix:")
 print(confusion_matrix(y_test, y_pred))
 
-# Predict for all students
 all_predictions = knn.predict(scaler.transform(X))
 
-# Add predictions to the DataFrame
 df['Prediction'] = all_predictions
 
 print("\nStudent Classifications:")
