@@ -1,10 +1,11 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
 
 print("21BBS0163 HARSHITH KUMAR")
 
-file_path = 'diet_2.csv'  
+file_path = 'diet_2.csv'
 data = pd.read_csv(file_path)
 
 print(data.head())
@@ -33,10 +34,12 @@ print(kmeans.cluster_centers_)
 
 print(data[['Age', 'Weight', 'Height', 'BMI', 'Cluster Label']].head())
 
-# Optional: Visualize the clusters
-# plt.scatter(data['Age'], data['BMI'], c=data['Cluster'], cmap='viridis')
-# plt.xlabel('Age')
-# plt.ylabel('BMI')
-# plt.title('Clusters')
-# plt.colorbar(label='Cluster')
-# plt.show()
+plt.figure(figsize=(8, 6))
+plt.scatter(data['Age'], data['BMI'], c=data['Cluster'],
+            cmap='viridis', marker='o', edgecolor='k', s=100)
+plt.xlabel('Age')
+plt.ylabel('BMI')
+plt.title('KMeans Clustering (Age vs BMI)')
+plt.colorbar(label='Cluster')
+plt.grid(True)
+plt.show()
