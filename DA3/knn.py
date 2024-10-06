@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 print("Harshith Kumar 21BBS0163")
 
-df = pd.read_csv("student_data.csv")
+df = pd.read_csv("student.csv")
 
 X = df[['Attendance', 'Marks (Data Mining)']]
 
