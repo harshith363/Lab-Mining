@@ -4,6 +4,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 # Load the dataset
+print("Harshith Kumar 21BBS0163")
 data = pd.read_csv('university_admissions.csv')
 
 # Define features and target

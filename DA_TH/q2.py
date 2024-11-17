@@ -5,6 +5,7 @@ from statsmodels.tsa.arima.model import ARIMA
 from ta.trend import SMAIndicator, EMAIndicator
 
 # Load the dataset
+print("Harshith Kumar 21BBS0163")
 file_path = "NewYork.csv"
 data = pd.read_csv(file_path)
 
